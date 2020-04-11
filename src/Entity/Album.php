@@ -54,6 +54,7 @@ class Album
      */
     private $updatedAt;
 
+
     public function __construct()
     {
         $this->tracks = new ArrayCollection();
@@ -141,6 +142,7 @@ class Album
     {
         return $this->imageFile;
     }
+
 
 
 

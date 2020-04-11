@@ -3,8 +3,47 @@
 
 {% block admin %}
 
+    <div class="row my-4">
+        <a class="btn btn-outline-info mx-auto" href="{{path('admin_album_new')}}" role="button">Ajouter un album / groupe de pistes</a>
+    </div>
+
     <section class="row">
-        <a class="btn btn-outline-info" href="{{path('admin_album_new')}}" role="button">Ajouter un album</a>
+
+        <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Titre</th>
+                <th scope="col">Image</th>
+                <th scope="col">Image file</th>
+                <th scope="col">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+                {% for album in albums %}
+                <tr>
+                    <th scope="row">{{album.id}}</th>
+                    <td>{{album.title}}</td>
+                    <td>{{album.imageName}}</td>
+                    <td><img src="{{album.imageFile}}" alt="Image non trouvée" width="30" height="auto" ></td>
+                    <td>
+                        <div class="row justify-content-around">
+                            <a href="{{path('admin_album_edit', {id: album.id})}} " class="btn btn-outline-info">Editer</a>
+                            <form method='POST' action="{{path('admin_album_delete', {id: album.id})}}">
+                                <input type="hidden" name="_method" value="DELETE">
+                                <input type="hidden" name="_token" value='{{ csrf_token('delete' ~ album.id) }}'>
+                                <button onclick="return confirm('Etes vous sur?');" class='btn btn-outline-danger'>Supprimer</button>
+                            </form>                    
+                            
+                        </div>
+                    </td>
+                </tr>  
+                {% endfor %}
+
+
+            </tbody>
+          </table>
+
     </section>
 
 {% endblock %}

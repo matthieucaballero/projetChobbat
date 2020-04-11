@@ -16,8 +16,8 @@ class AlbumType extends AbstractType
             ->add('title')
             ->add('imageFile', VichImageType::class, [
                 'required' => false,
-                'allow_delete' => true,
-                'download_label' => '...',
+                'allow_delete' => false,
+                'download_label' => true,
                 'download_uri' => true,
                 'image_uri' => true,
                 'asset_helper' => true,
