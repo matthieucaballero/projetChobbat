@@ -34,7 +34,8 @@ class Album
     /**
      * NOTE: This is not a mapped field of entity metadata, just a simple property.
      * 
-     * @Vich\UploadableField(mapping="album_image", fileNameProperty="imageName")
+     * @Vich\UploadableField(mapping="album_image", fileNameProperty="imageName", 
+     * size="imageSize", originalName="originalName")
      * 
      * @var File|null
      */
@@ -54,6 +55,17 @@ class Album
      */
     private $updatedAt;
 
+    /**
+     * @ORM\Column(type="integer")
+     *
+     * @var int|null
+     */
+    private $imageSize;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $originalName;
 
     public function __construct()
     {
@@ -143,6 +155,27 @@ class Album
         return $this->imageFile;
     }
 
+    public function setImageSize(?int $imageSize): void
+    {
+        $this->imageSize = $imageSize;
+    }
+
+    public function getImageSize(): ?int
+    {
+        return $this->imageSize;
+    }
+
+    public function getOriginalName(): ?string
+    {
+        return $this->originalName;
+    }
+
+    public function setOriginalName(string $originalName): self
+    {
+        $this->originalName = $originalName;
+
+        return $this;
+    }
 
 
 

@@ -1,0 +1,14 @@
+<section class="my-5">
+{{ form_start(form)}}
+
+{{ form_row(form.title)}}
+
+{{ form_row(form.album)}}
+
+{{ form_row(form.trackFile)}}
+
+
+<button class="btn btn-primary">{{ button|default('Valider')}}</button>
+
+{{ form_end(form)}}
+</section>

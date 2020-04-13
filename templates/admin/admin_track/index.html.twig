@@ -1,0 +1,47 @@
+{% extends 'admin/index.html.twig' %}
+
+
+{% block admin %}
+
+    <div class="row my-4">
+        <a class="btn btn-outline-info mx-auto" href="{{path('admin_track_new')}}" role="button">Ajouter une piste</a>
+    </div>
+
+    <section class="row">
+
+        <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Titre</th>
+                <th scope="col">Album</th>
+                <th scope="col">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+                {% for track in tracks %}
+                <tr>
+                    <th scope="row">{{track.id}}</th>
+                    <td>{{track.title}}</td>
+                    <td>{{track.album}}</td>
+                    <td>
+                        <div class="row justify-content-around">
+                            <a href="{{path('admin_track_edit', {id: track.id})}} " class="btn btn-outline-info">Editer</a>
+                            <form method='POST' action="{{path('admin_track_delete', {id: track.id})}}">
+                                <input type="hidden" name="_method" value="DELETE">
+                                <input type="hidden" name="_token" value='{{ csrf_token('delete' ~ track.id) }}'>
+                                <button onclick="return confirm('Etes vous sur?');" class='btn btn-outline-danger'>Supprimer</button>
+                            </form>                    
+                            
+                        </div>
+                    </td>
+                </tr>  
+                {% endfor %}
+
+
+            </tbody>
+          </table>
+
+    </section>
+
+{% endblock %}

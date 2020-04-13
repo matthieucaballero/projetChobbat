@@ -28,7 +28,7 @@ class AdminAlbumController extends AbstractController
 
 
     /**
-     * @Route("/admin/albums", name="admin_album")
+     * @Route("/admin/album", name="admin_album")
      */
     public function index()
     {
@@ -38,7 +38,7 @@ class AdminAlbumController extends AbstractController
     }
 
     /**
-     * @Route("/admin/albums/create", name="admin_album_new")
+     * @Route("/admin/album/create", name="admin_album_new")
      */
     public function new(Request $request)
     {
