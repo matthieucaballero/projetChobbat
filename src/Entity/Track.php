@@ -5,6 +5,7 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\TrackRepository")
@@ -35,6 +36,9 @@ class Track
      * 
      * @Vich\UploadableField(mapping="track_file", fileNameProperty="trackName", 
      * size="trackSize", originalName="originalName")
+     * @Assert\File(
+     *  mimeTypes = {"audio/mpeg", "audio/wav", "audio/ogg"}
+     * )
      * 
      * @var File|null
      */
@@ -65,6 +69,11 @@ class Track
      * @ORM\Column(type="string", length=255)
      */
     private $originalName;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $trackNumber;
 
 
     public function getId(): ?int
@@ -147,9 +156,21 @@ class Track
         return $this->originalName;
     }
 
-    public function setOriginalName(string $originalName): self
+    public function setOriginalName(?string $originalName): self
     {
         $this->originalName = $originalName;
+
+        return $this;
+    }
+
+    public function getTrackNumber(): ?int
+    {
+        return $this->trackNumber;
+    }
+
+    public function setTrackNumber(?int $trackNumber): self
+    {
+        $this->trackNumber = $trackNumber;
 
         return $this;
     }
