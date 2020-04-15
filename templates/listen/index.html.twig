@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{% endblock %}
+
+{% block body %}
+
+<div id="container">
+
+    <div class="clearfix"></div>
+    <ul id="playlist" class="hidden">
+        <li class="active" song="because-sah-voix-homme-5e95c46bd03af560434700.mp3" cover="cover1.jpg" artist="Toto">
+            track1.mp3</li>
+        <li song="fascinating-rythm-homme-v2-5e97103ced10c506545266.mp3" cover="cover1.jpg" artist="Toto">track2.mp3
+        </li>
+    </ul>
+</div>
+</div>
+
+<footer class="footer mt-auto py-3 bg-light">
+    <section class="container">
+
+        <div class="row">
+
+            <div class="col-1" id="audio-image">
+                <img class="cover">
+            </div>
+
+            <div class="col-4" id="buttons" class="btn-group">
+                <button id="prev" class="rounded"><img src="/images/player/skip-start-fill.svg" alt=""></button>
+                <button id="play"><img src="/images/player/play-fill.svg" alt=""></button>
+                <button id="pause"><img src="/images/player/pause-fill.svg" alt=""></button>
+                <button id="stop"><img src="/images/player/stop-fill.svg" alt=""></button>
+                <button id="next"><img src="/images/player/skip-end-fill.svg" alt=""></button>
+            </div>
+            <div class="col-7">
+                <div id="audio-info">
+                    <span class="artist"></span> - <span class="title"></span>
+                </div>
+                <input id="volume" type="range" min="0" max="10" value="4">
+                <br>
+
+                <div class="clearfix"></div>
+                <div id="tracker">
+                    <div id="progress-bar">
+                        <span id="progress"></span>
+                    </div>
+                    <span id="duration"></span>
+                </div>
+            </div>
+    </section>
+</footer>
+
+
+{% endblock %}

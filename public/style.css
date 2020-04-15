@@ -1,3 +1,25 @@
-body{
-    font-family: 'Baloo Paaji 2', cursive;
+
+
+/* AUDIO PLAYER*/
+
+button{
+	border: none;
+	background-color: transparent;
+}
+#buttons button img{
+	height: auto;
+	width: 2em;
+}
+ 
+#playlist{
+	list-style:none;
+}
+#playlist li{
+	cursor:pointer;
+	margin:5px;
+}
+#playlist li.active{
+	font-weight:bold;
+	padding:3px;
+	background:#666;
 }
