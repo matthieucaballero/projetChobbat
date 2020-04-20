@@ -14,6 +14,9 @@ var audio;
  
 //Hide Pause
 $('#pause').hide();
+
+//Hide mute
+$('#volumeMute').hide();
  
 initAudio($('#playlist li:first-child'));
  
@@ -55,6 +58,8 @@ $('#pause').click(function(){
 //Stop button
 $('#stop').click(function(){
 	audio.pause();
+	$('#play').show();
+	$('#pause').hide();
 	audio.currentTime = 0;
 });
  
@@ -94,9 +99,29 @@ $('#playlist li').click(function(){
  
 //Volume control
 $('#volume').change(function(){
+	$('#volumeMute').hide();
+	$('#volumeDown').show();
 	audio.volume = parseFloat(this.value / 10);
+	console.log(this.value);
+
 });
- 
+
+//Volume down button
+$('#volumeDown').click(function(){
+	$('#volumeDown').hide();
+	$('#volumeMute').show();
+	audio.volume = 0;
+
+});
+
+//Volume mute button
+$('#volumeMute').click(function(){
+	$('#volumeMute').hide();
+	$('#volumeDown').show();
+	console.log($('#volume').val());
+	audio.volume = ($('#volume').val() / 10);
+});
+
 //Time/Duration
 function showDuration(){
 	$(audio).bind('timeupdate',function(){

@@ -25,20 +25,30 @@
                 <img class="cover">
             </div>
 
-            <div class="col-4" id="buttons" class="btn-group">
-                <button id="prev" class="rounded"><img src="/images/player/skip-start-fill.svg" alt=""></button>
-                <button id="play"><img src="/images/player/play-fill.svg" alt=""></button>
-                <button id="pause"><img src="/images/player/pause-fill.svg" alt=""></button>
-                <button id="stop"><img src="/images/player/stop-fill.svg" alt=""></button>
-                <button id="next"><img src="/images/player/skip-end-fill.svg" alt=""></button>
+            <div class="col" id="buttons" class="btn-group">
+                <div class="row">
+                    <div id="volumeElements">
+                        <button id="volumeDown"><img src="/images/player/volume-down-fill.svg" alt=""></button>
+                        <button id="volumeMute"><img src="/images/player/volume-mute-fill.svg" alt=""></button>
+                        <div id="range">
+                            <input id="volume" type="range" class="custom-range" min="0" max="10" value="4">
+                        </div>
+                    </div>
+                    <button id="prev" class="rounded"><img src="/images/player/skip-start-fill.svg" alt=""></button>
+                    <button id="play"><img src="/images/player/play-fill.svg" alt=""></button>
+                    <button id="pause"><img src="/images/player/pause-fill.svg" alt=""></button>
+                    <button id="stop"><img src="/images/player/stop-fill.svg" alt=""></button>
+                    <button id="next"><img src="/images/player/skip-end-fill.svg" alt=""></button>
+                </div>
+                <div class="row">
+
+                </div>
+
             </div>
-            <div class="col-7">
+            <div class="col-5">
                 <div id="audio-info">
                     <span class="artist"></span> - <span class="title"></span>
                 </div>
-                <input id="volume" type="range" min="0" max="10" value="4">
-                <br>
-
                 <div class="clearfix"></div>
                 <div id="tracker">
                     <div id="progress-bar">
@@ -47,6 +57,7 @@
                     <span id="duration"></span>
                 </div>
             </div>
+
     </section>
 </footer>
 

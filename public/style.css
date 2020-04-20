@@ -6,11 +6,30 @@ button{
 	border: none;
 	background-color: transparent;
 }
-#buttons button img{
+#buttons img{
 	height: auto;
 	width: 2em;
 }
  
+#volumeElements{
+	position: relative;
+}
+
+#volumeElements:hover #range{
+	display: flex;
+	align-items: center;
+}
+
+#range{
+	position: absolute;
+	display: none;
+	width: 5em;
+	height: 2em;
+	transform: rotate(-90deg);
+	top: -3.2em;
+	left: -1em;	
+}
+
 #playlist{
 	list-style:none;
 }
