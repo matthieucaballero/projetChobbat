@@ -30,15 +30,12 @@ button{
 	left: -1em;	
 }
 
-#playlist{
+.playlist{
 	list-style:none;
 }
-#playlist li{
+.playlist li{
 	cursor:pointer;
-	margin:5px;
+
 }
-#playlist li.active{
-	font-weight:bold;
-	padding:3px;
-	background:#666;
-}
+
+

@@ -4,28 +4,60 @@
 
 {% block body %}
 
-<div id="container">
+<section class="container">
 
-    <div class="clearfix"></div>
-    <ul id="playlist" class="hidden">
+
+    {% for album in albums %}
+
+    <article class="media m-5 p-md-5">
+        <img src="/images/albums/{{album.imageName}}" width="150" height="auto" class="mr-3" alt="...">
+
+        <div class="media-body pl-3">
+            <h4 class="mt-0">{{album.title}}</h4>
+
+            <ul playlist="playlist{{album.id}}" class="playlist list-group list-group-flush mt-4">
+                
+                {% for track in album.tracks %}
+                <li class="list-group-item"
+                    song="{{track.trackName}}"
+                    cover="{{album.imageName}}"
+                    from="playlist{{album.id}}">
+                    <span>{{track.trackNumber}} - </span>
+                    <b>{{track.title}}</b>
+                </li>
+                {% endfor %}
+
+            </ul>
+
+        </div>
+    </article>
+
+    {% endfor %}
+
+
+<!--
+    <ul id="playlist">
         <li class="active" song="because-sah-voix-homme-5e95c46bd03af560434700.mp3" cover="cover1.jpg" artist="Toto">
             track1.mp3</li>
         <li song="fascinating-rythm-homme-v2-5e97103ced10c506545266.mp3" cover="cover1.jpg" artist="Toto">track2.mp3
         </li>
     </ul>
-</div>
-</div>
+-->
+</section>
+
+
+
 
 <footer class="footer mt-auto py-3 bg-light">
     <section class="container">
 
         <div class="row">
 
-            <div class="col-1" id="audio-image">
-                <img class="cover">
+            <div class="col-sm-2" id="audio-image">
+                <img class="cover" width="50" height="50">
             </div>
 
-            <div class="col" id="buttons" class="btn-group">
+            <div class="col-sm-5" id="buttons" class="btn-group">
                 <div class="row">
                     <div id="volumeElements">
                         <button id="volumeDown"><img src="/images/player/volume-down-fill.svg" alt=""></button>
@@ -45,9 +77,9 @@
                 </div>
 
             </div>
-            <div class="col-5">
+            <div class="col-sm-5">
                 <div id="audio-info">
-                    <span class="artist"></span> - <span class="title"></span>
+                    <span class="title"></span>
                 </div>
                 <div class="clearfix"></div>
                 <div id="tracker">

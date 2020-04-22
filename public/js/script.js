@@ -18,25 +18,26 @@ $('#pause').hide();
 //Hide mute
 $('#volumeMute').hide();
  
-initAudio($('#playlist li:first-child'));
- 
+//initAudio($('#playlist li:first-child'));
+var playlist = $("[playlist*='playlist']")[0]; 
+initAudio($("li:first-child", playlist));
+
 function initAudio(element){
+
 	var song = element.attr('song');
 	var title = element.text();
 	var cover = element.attr('cover');
-	var artist = element.attr('artist');
-	
+	playlist = $("[playlist='" + element.attr("from") + "']")[0];
+
 	//Create audio object
 	audio = new Audio('tracks/'+ song);
 	
 	//Insert audio info
-	$('.artist').text(artist);
 	$('.title').text(title);
 	
 	//Insert song cover
-	$('img.cover').attr('src','images/covers/'+cover);
-	
-	$('#playlist li').removeClass('active');
+	$('img.cover').attr('src','images/albums/'+cover);
+	$('li').removeClass('active');
 	element.addClass('active');
 }
  
@@ -66,9 +67,9 @@ $('#stop').click(function(){
 //Next button
 $('#next').click(function(){
 	audio.pause();
-	var next = $('#playlist li.active').next();
+	var next = $('li.active', playlist).next();
 	if(next.length == 0){
-		next = $('#playlist li:first-child');
+		next = $('li:first-child', playlist);
 	}
 	initAudio(next);
 	audio.play();
@@ -78,9 +79,9 @@ $('#next').click(function(){
 //Prev button
 $('#prev').click(function(){
 	audio.pause();
-	var prev = $('#playlist li.active').prev();
+	var prev = $('li.active', playlist).prev();
 	if(prev.length == 0){
-		prev = $('#playlist li:last-child');
+		prev = $('li:last-child', playlist);
 	}
 	initAudio(prev);
 	audio.play();
@@ -88,7 +89,7 @@ $('#prev').click(function(){
 });
  
 //Playlist song click
-$('#playlist li').click(function(){
+$('.playlist li').click(function(){
 	audio.pause();
 	initAudio($(this));
 	$('#play').hide();
@@ -102,7 +103,6 @@ $('#volume').change(function(){
 	$('#volumeMute').hide();
 	$('#volumeDown').show();
 	audio.volume = parseFloat(this.value / 10);
-	console.log(this.value);
 
 });
 
@@ -118,7 +118,6 @@ $('#volumeDown').click(function(){
 $('#volumeMute').click(function(){
 	$('#volumeMute').hide();
 	$('#volumeDown').show();
-	console.log($('#volume').val());
 	audio.volume = ($('#volume').val() / 10);
 });
 
@@ -139,3 +138,8 @@ function showDuration(){
 		$('#progress').css('width',value+'%');
 	});
 }
+
+audio.onended = function() {
+	console.log("coucoucoucoucoucou");
+	alert("The audio has ended");
+  };

@@ -37,7 +37,7 @@ class Track
      * @Vich\UploadableField(mapping="track_file", fileNameProperty="trackName", 
      * size="trackSize", originalName="originalName")
      * @Assert\File(
-     *  mimeTypes = {"audio/mpeg", "audio/wav", "audio/ogg"}
+     *  mimeTypes = {"audio/mpeg", "audio/wav", "audio/ogg", "audio/vnd.wave", "audio/x-wav", "audio/wave" }
      * )
      * 
      * @var File|null
