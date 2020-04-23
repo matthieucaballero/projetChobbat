@@ -31,7 +31,19 @@ function initAudio(element){
 
 	//Create audio object
 	audio = new Audio('tracks/'+ song);
-	
+
+	audio.addEventListener("ended", function() {
+		console.log("coucoucoucoucoucou");
+		audio.pause();
+		var next = $('li.active', playlist).next();
+		if(next.length == 0){
+			next = $('li:first-child', playlist);
+		}
+		initAudio(next);
+		audio.play();
+		showDuration();
+	  });
+
 	//Insert audio info
 	$('.title').text(title);
 	
@@ -139,7 +151,3 @@ function showDuration(){
 	});
 }
 
-audio.onended = function() {
-	console.log("coucoucoucoucoucou");
-	alert("The audio has ended");
-  };

@@ -1,10 +1,15 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}{% endblock %}
+{% block header %}{% endblock %}
 
 {% block body %}
-<section class="container">
-    <p>L'accueil du Projet Chôbbat!</p>
+
+<section id="homeBackground" class="container-fluid">
+    <div id="homeBox">
+        <h1 id="homeTitle">Projet Chôbbat</h1>
+        <a class="btn btn-outline-light" href="{{path('listen')}}" role="button">Entrer</a>
+    </div>
 </section>
 
 

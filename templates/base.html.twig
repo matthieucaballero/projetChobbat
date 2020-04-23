@@ -7,6 +7,8 @@
 
         <title>Projet Chôbbat {% block title %}{% endblock %}</title>
 
+        <link rel="icon" href="/images/favicon.png" />
+
          <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <link rel="stylesheet" href="/style.css">
@@ -17,21 +19,26 @@
 
         <header>
           {% block header %}
-            <img src="/images/ProjetChobbat.jpg" class="img-fluid" alt="Projet Chôbbat">
-            <nav class="navbar navbar-expand-lg navbar-light bg-white">
-                <a class="navbar-brand" href="#">
+            <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light ">
+                <a class="navbar-brand" href="{{path('home')}}">
                     <img class="rounded-circle img-fluid" src="/images/avatars.jpg" width="50" height="auto" alt="Projet Chôbbat">
                 </a>
+                <span class="navbar-text">
+                 <strong> Projet Chôbbat</strong>
+                </span>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
-                  <ul class="navbar-nav">
+                  <ul class="navbar-nav ml-auto" >
                     <li class="nav-item">
-                      <a class="nav-link" href="#">C'est quoi?</a>
+                      <a class="nav-link" href="#"></a>
+                    </li>
+                    <li class="nav-item" >
+                      <a class="nav-link" href="{{path('listen')}}" >Ecouter</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="{{path('listen')}}">Ecouter</a>
+                      <a class="nav-link" href="#">Regarder</a>
                     </li>
                     <li class="nav-item">
                       <a class="nav-link" href="#">Contacter</a>
@@ -39,6 +46,7 @@
                   </ul>
                 </div>
               </nav>
+
           {% endblock %}
         </header>
 

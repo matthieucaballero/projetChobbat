@@ -1,4 +1,27 @@
 
+#homeBackground{
+	background-image: url('/images/Background.jpg');
+	background-color: black;
+	background-size: cover;
+	background-repeat: no-repeat;
+	height: 1000px;
+	display: flex;
+	justify-content: center;
+}
+
+#homeTitle{
+	color: whitesmoke;
+	font-weight: bolder;
+	font-size: 5rem;
+	margin-bottom: 3rem;
+}
+
+#homeBox{
+	margin-top: 10rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
 
 /* AUDIO PLAYER*/
 
@@ -35,7 +58,24 @@ button{
 }
 .playlist li{
 	cursor:pointer;
-
 }
 
+.playlist li:hover{
+	background-color:rgb(243, 243, 243);
+}
 
+/* ---------------------------------------------------------------------------------- */
+@media only screen and (min-width:1200px){
+
+#homeBackground{
+	background-image: url('/images/Background.jpg');
+	background-color: black;
+	background-size: 100%;
+	background-repeat: no-repeat;
+	height: 1000px;
+}
+#homeTitle{
+	font-size: 8rem;
+}
+
+}
