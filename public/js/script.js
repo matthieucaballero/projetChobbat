@@ -33,9 +33,8 @@ function initAudio(element){
 	audio = new Audio('tracks/'+ song);
 
 	audio.addEventListener("ended", function() {
-		console.log("coucoucoucoucoucou");
 		audio.pause();
-		var next = $('li.active', playlist).next();
+		var next = $('li.selected', playlist).next();
 		if(next.length == 0){
 			next = $('li:first-child', playlist);
 		}
@@ -49,8 +48,8 @@ function initAudio(element){
 	
 	//Insert song cover
 	$('img.cover').attr('src','images/albums/'+cover);
-	$('li').removeClass('active');
-	element.addClass('active');
+	$('li').removeClass('selected');
+	element.addClass('selected');
 }
  
 //Play button
@@ -79,7 +78,7 @@ $('#stop').click(function(){
 //Next button
 $('#next').click(function(){
 	audio.pause();
-	var next = $('li.active', playlist).next();
+	var next = $('li.selected', playlist).next();
 	if(next.length == 0){
 		next = $('li:first-child', playlist);
 	}
@@ -91,7 +90,7 @@ $('#next').click(function(){
 //Prev button
 $('#prev').click(function(){
 	audio.pause();
-	var prev = $('li.active', playlist).prev();
+	var prev = $('li.selected', playlist).prev();
 	if(prev.length == 0){
 		prev = $('li:last-child', playlist);
 	}

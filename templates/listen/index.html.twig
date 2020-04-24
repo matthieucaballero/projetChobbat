@@ -4,7 +4,7 @@
 
 {% block body %}
 
-<section class="container mt-5 pt-5">
+<section id="listenBackground" class="container mt-5 pt-5">
 
 
     {% for album in albums %}
@@ -70,16 +70,18 @@
 
             </div>
             <div class="col-sm-5">
+
                 <div id="audio-info">
                     <span class="title"></span>
                 </div>
-                <div class="clearfix"></div>
+
                 <div id="tracker">
-                    <div id="progress-bar">
-                        <span id="progress"></span>
+                    <div id="progress-bar" class="my-1">
+                        <div id="progress"></div>
                     </div>
                     <span id="duration"></span>
                 </div>
+
             </div>
 
     </section>
