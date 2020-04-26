@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+
+<section class="container my-5 py-5">
+
+    <h2 class="mt-5">Contacter le Projet Chôbbat</h2>
+
+    <div class="mt-5">
+        {{ form_start(form)}}
+
+        {{ form_row(form.name)}}
+
+        {{ form_row(form.from)}}
+
+        {{ form_row(form.message)}}
+
+        <button class="btn btn-primary">Envoyer</button>
+
+        {{ form_end(form)}}
+    </div>
+
+</section>
+
+{% endblock %}

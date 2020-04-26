@@ -20,7 +20,11 @@ $('#volumeMute').hide();
  
 //initAudio($('#playlist li:first-child'));
 var playlist = $("[playlist*='playlist']")[0]; 
-initAudio($("li:first-child", playlist));
+console.log(playlist);
+if (playlist) {
+	initAudio($("li:first-child", playlist));
+}
+
 
 function initAudio(element){
 
