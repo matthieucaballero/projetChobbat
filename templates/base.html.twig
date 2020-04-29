@@ -19,16 +19,16 @@
 
         <header>
           {% block header %}
-            <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light ">
-                <a class="navbar-brand" href="{{path('home')}}">
+            <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-white border-bottom border-dark ">
+                <a class="navbar-brand" href="{{path('accueil')}}">
                     <img class="rounded-circle img-fluid" src="/images/avatars.jpg" width="50" height="auto" alt="Projet Chôbbat">
-                    <strong> Projet Chôbbat</strong>
+                    <strong class="ml-4"> Projet Chôbbat</strong>
                   </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
-                  <ul class="navbar-nav ml-auto" >
+                  <ul class="navbar-nav ml-auto text-dark" >
 
                     {% if app.user %}
                     <li class="nav-item" >
@@ -37,10 +37,13 @@
                     {% endif %}
                     
                     <li class="nav-item" >
-                      <a class="nav-link" href="{{path('listen')}}" >Ecouter</a>
+                      <a class="nav-link text-dark" href="{{path('listen')}}" >Ecouter</a>
+                    </li>
+                    <li class="nav-item" >
+                      <a class="nav-link text-dark" href="{{path('listen')}}" >Regarder</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="{{path('contact')}}">Contacter</a>
+                      <a class="nav-link text-dark" href="{{path('contact')}}">Contacter</a>
                     </li>
                   </ul>
                 </div>
