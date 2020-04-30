@@ -1,20 +1,49 @@
 {% extends 'admin/index.html.twig' %}
 
-{% block title %}Hello AdminPictureController!{% endblock %}
 
-{% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+{% block admin %}
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    <div class="row my-4">
+        <a class="btn btn-outline-info mx-auto" href="{{path('admin_picture_new')}}" role="button">Ajouter une image</a>
+    </div>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/wamp64/www/projetChobbat/src/Controller/Admin/AdminPictureController.php'|file_link(0) }}">src/Controller/Admin/AdminPictureController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/wamp64/www/projetChobbat/templates/admin/admin_picture/index.html.twig'|file_link(0) }}">templates/admin/admin_picture/index.html.twig</a></code></li>
-    </ul>
-</div>
+    <section class="row">
+
+        <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Titre</th>
+                <th scope="col">Image</th>
+                <th scope="col">Image file</th>
+                <th scope="col">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+                {% for picture in pictures %}
+                <tr>
+                    <th scope="row">{{picture.id}}</th>
+                    <td>{{picture.title}}</td>
+                    <td>{{picture.imageName}}</td>
+                    <td><img src="{{picture.imageFile}}" alt="Image non trouvée" width="30" height="auto" ></td>
+                    <td>
+                        <div class="row justify-content-around">
+                            <a href="{{path('admin_picture_edit', {id: picture.id})}} " class="btn btn-outline-info">Editer</a>
+                            <form method='POST' action="{{path('admin_picture_delete', {id: picture.id})}}">
+                                <input type="hidden" name="_method" value="DELETE">
+                                <input type="hidden" name="_token" value='{{ csrf_token('delete' ~ picture.id) }}'>
+                                <button onclick="return confirm('Etes vous sur?');" class='btn btn-outline-danger'>Supprimer</button>
+                            </form>                    
+                            
+                        </div>
+                    </td>
+                </tr>  
+                {% endfor %}
+
+
+            </tbody>
+          </table>
+
+    </section>
+
 {% endblock %}

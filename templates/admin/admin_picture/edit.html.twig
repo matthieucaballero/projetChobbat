@@ -1,0 +1,13 @@
+{% extends 'admin/index.html.twig' %}
+
+
+{% block admin %}
+
+<div class="row"> <h1>Editer {{picture.title}}</h1> </div> 
+
+
+        {% include "admin/admin_picture/_pictureform.html.twig" with {button: 'Editer'}%}  
+
+
+
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<section class="container mt-5 pt-5">
+
+    <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 mt-5">
+        {% for picture in pictures %}
+            <div class="col">
+                <img src="/images/gallery/{{picture.imageName}}" style="width: 100%;" alt="">
+                <p>{{picture.title}}</p>
+            </div>
+        {% endfor %}
+    </div>
+
+</section>
+
+{% endblock %}
