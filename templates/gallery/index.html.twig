@@ -2,17 +2,46 @@
 
 {% block body %}
 
+<!--MODAL -->
+
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
 <section class="container mt-5 pt-5">
 
     <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 mt-5">
         {% for picture in pictures %}
             <div class="col">
-                <img src="/images/gallery/{{picture.imageName}}" style="width: 100%;" alt="">
+                <img src="{{ asset('/images/gallery/'~picture.imageName) | imagine_filter('gallery_thumbnail')}}" style="width: 100%;" alt="">
                 <p>{{picture.title}}</p>
             </div>
         {% endfor %}
     </div>
-
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+    Launch demo modal
+  </button>
 </section>
 
 {% endblock %}
