@@ -16,6 +16,10 @@
 ###< symfony/phpunit-bridge ###
 
 /pictures/
+/public/images/albums
+/public/images/gallery
+/public/tracks
+
 
 ###> liip/imagine-bundle ###
 /public/media/cache/
