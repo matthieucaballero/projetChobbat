@@ -154,3 +154,23 @@ function showDuration(){
 	});
 }
 
+// Gallery - picture viewer ---------------------------------------------------------------------------------------
+
+
+//Picture click
+$('.picture').click(function(){
+
+	$('.modal-body').empty();
+	picturePath = "/images/gallery/" + $(this).attr('data-imageName');
+	$('.modal-body').append("<img src='" + picturePath + "' style='width: 100%;' alt=''>");
+	$('#pictureViewer').modal();
+
+});
+
+//Modal close button click
+$('.close').click(function(){
+
+	$('.modal-body').empty();
+
+});
+
