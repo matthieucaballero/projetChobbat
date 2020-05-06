@@ -175,5 +175,12 @@ class Track
         return $this;
     }
 
+    static function cmp_tracks(Track $a, Track $b)
+    {
+        if ($a->getTrackNumber() == $b->getTrackNumber()) {
+            return 0;
+        }
+        return ($a->getTrackNumber() > $b->getTrackNumber()) ? +1 : -1;
+    }
 
 }

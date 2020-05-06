@@ -28,6 +28,7 @@ class Album
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Track", mappedBy="album", orphanRemoval=true)
+     * @ORM\OrderBy({"trackNumber" = "ASC"})
      */
     private $tracks;
 
