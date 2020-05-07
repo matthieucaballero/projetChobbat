@@ -25,7 +25,7 @@
                     <th scope="row">{{picture.id}}</th>
                     <td>{{picture.title}}</td>
                     <td>{{picture.imageName}}</td>
-                    <td><img src="{{picture.imageFile}}" alt="Image non trouvée" width="30" height="auto" ></td>
+                    <td><img src="/images/gallery/{{picture.imageName}}" alt="Image non trouvée" width="30" height="auto" ></td>
                     <td>
                         <div class="row justify-content-around">
                             <a href="{{path('admin_picture_edit', {id: picture.id})}} " class="btn btn-outline-info">Editer</a>

@@ -4,7 +4,8 @@ vich_uploader:
     mappings:
         album_image:
             uri_prefix: /images/albums
-            upload_destination: '%kernel.project_dir%/public/images/albums'
+            #upload_destination: '%kernel.project_dir%/public/images/albums'
+            upload_destination: 'images/albums'
             namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
 
             inject_on_load: true
@@ -13,7 +14,8 @@ vich_uploader:
 
         track_file:
             uri_prefix: /tracks
-            upload_destination: '%kernel.project_dir%/public/tracks'
+            #upload_destination: '%kernel.project_dir%/public/tracks'
+            upload_destination: 'tracks'
             namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
 
             inject_on_load: true
@@ -22,7 +24,8 @@ vich_uploader:
 
         picture_image:
             uri_prefix: /images/gallery
-            upload_destination: '%kernel.project_dir%/public/images/gallery'
+            #upload_destination: '%kernel.project_dir%/public/images/gallery'
+            upload_destination: 'images/gallery'
             namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
 
             inject_on_load: true

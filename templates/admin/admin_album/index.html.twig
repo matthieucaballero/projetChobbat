@@ -25,7 +25,7 @@
                     <th scope="row">{{album.id}}</th>
                     <td>{{album.title}}</td>
                     <td>{{album.imageName}}</td>
-                    <td><img src="{{album.imageFile}}" alt="Image non trouvée" width="30" height="auto" ></td>
+                    <td><img src="/images/albums/{{album.imageName}}" alt="Image non trouvée" width="30" height="auto" ></td>
                     <td>
                         <div class="row justify-content-around">
                             <a href="{{path('admin_album_edit', {id: album.id})}} " class="btn btn-outline-info">Editer</a>
