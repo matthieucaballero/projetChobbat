@@ -4,10 +4,11 @@
 	background-color: black;
 	background-size: cover;
 	background-repeat: no-repeat;
-	height: 1490px;
+	height: 100vh;
 	display: flex;
 	justify-content: center;
 	background-attachment: fixed;
+
 }
 
 #homeTitle{
@@ -31,6 +32,12 @@
 
 img.picture:hover{
 	cursor:pointer;
+}
+
+#listenFooter{
+	position: fixed;
+	bottom: 0;
+	width: 100%;
 }
 
 /* AUDIO PLAYER*/
@@ -76,6 +83,7 @@ button{
 
 .selected{
 	background-color:rgb(243, 243, 243);
+	font-weight: bold;
 }
 #progress-bar{
 	width: 100%;

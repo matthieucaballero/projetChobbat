@@ -4,16 +4,17 @@
 
 {% block body %}
 
-<section id="listenBackground" class="container mt-5 pt-5">
+<section id="listenBackground" class="container my-5 py-5">
 
 
     {% for album in albums %}
 
-    <article class="media m-5 p-md-5">
-        <img src="/images/albums/{{album.imageName}}" width="150" height="auto" class="mr-3" alt="...">
-
-        <div class="media-body pl-3">
-            <h4 class="mt-0">{{album.title}}</h4>
+    <article class="row my-5 p-md-5">
+        <div class="col-md-4">
+            <img src="/images/albums/{{album.imageName}}" width="100%" height="auto" class="mr-3 mb-3" alt="...">
+        </div>
+        <div class="col-md-8">
+            <h4 class="mt-1">{{album.title}}</h4>
 
             <ul playlist="playlist{{album.id}}" class="playlist list-group list-group-flush mt-4">
                 
@@ -23,7 +24,7 @@
                     cover="{{album.imageName}}"
                     from="playlist{{album.id}}">
                     <span>{{track.trackNumber}} - </span>
-                    <b>{{track.title}}</b>
+                    <span>{{track.title}}</span>
                 </li>
                 {% endfor %}
 
@@ -40,7 +41,7 @@
 
 
 
-<footer class="footer mt-auto py-3 bg-white border-top border-dark">
+<footer id="listenFooter" class="mt-auto py-3 bg-white border-top border-dark">
     <section class="container">
 
         <div class="row">
@@ -49,7 +50,7 @@
                 <img class="cover" width="50" height="50">
             </div>
 
-            <div class="col-auto" id="buttons" class="btn-group">
+            <div class="col-sm-5" id="buttons" class="btn-group">
                 <div class="row d-flex justify-content-center">
                     <div id="volumeElements">
                         <button id="volumeDown"><img src="/images/player/volume-down-fill.svg" alt=""></button>
