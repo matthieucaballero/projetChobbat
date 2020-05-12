@@ -5,11 +5,11 @@
   <!-- Modal -->
   <div class="modal fade" id="pictureViewer" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
-      <div class="modal-content">
-         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
+      <div class="modal-content bg-transparent border-0">
+         <button id="closePictureBtn" type="button" class="close" data-dismiss="modal" aria-label="Close" >
+          <span aria-hidden="true" style="font-size: 2em;" >&times;</span>
         </button>
-        <div class="modal-body">
+        <div class="modal-body" style="text-align: center;" >
         </div>
       </div>
     </div>
@@ -23,8 +23,9 @@
     <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 mt-5">
         {% for picture in pictures %}
             <div class="col py-2">
-                <img class="picture" src="{{ asset('/images/gallery/'~picture.imageName) | imagine_filter('gallery_thumbnail')}}" data-imageName="{{picture.imageName}}" style="width: 100%;" alt="">
-            </div>
+                <!--<img class="picture" src="{{ asset('/images/gallery/'~picture.imageName) | imagine_filter('gallery_thumbnail')}}" data-imageName="{{picture.imageName}}" style="width: 100%;" alt="">-->
+                <img class="picture" src="{{ vich_uploader_asset(picture, 'imageFile') | imagine_filter('gallery_thumbnail')}}" data-imageName="{{picture.imageName}}" style="width: 100%;" alt="">
+              </div>
         {% endfor %}
     </div>
 </section>

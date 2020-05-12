@@ -162,7 +162,7 @@ $('.picture').click(function(){
 
 	$('.modal-body').empty();
 	picturePath = "/images/gallery/" + $(this).attr('data-imageName');
-	$('.modal-body').append("<img src='" + picturePath + "' style='width: 100%;' alt=''>");
+	$('.modal-body').append("<img id='bigPicture' src='" + picturePath + "' alt=''>");
 	$('#pictureViewer').modal();
 
 });
